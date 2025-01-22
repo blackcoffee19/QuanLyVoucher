@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<QLVC>
+  <Login expire="7">
+    <user></user>
+    <password></password>
+    <chinhanh></chinhanh>
+    <nganh></nganh>
+  </Login>
+  <ConnectionSQL>
+    <Server>hostvoucher.sunrisehotel.com.vn</Server>
+    <User>sa</User>
+    <Password>atYEMmvtv+ay+p7V5AE7yw==</Password>
+    <Database>QuanLyVoucher</Database>
+  </ConnectionSQL>
+  <Printer>
+	<TenMayIn></TenMayIn>
+	<ChonMayInKhiIn>True</ChonMayInKhiIn>
+    <SLHDChoLanIn>2</SLHDChoLanIn>
+  </Printer>
+  <InBanHang>
+    <startX>0</startX>
+    <startY>0</startY>
+    <startXGiaTri>120</startXGiaTri>
+    <startXThanhTien>200</startXThanhTien>
+    <DongCachDong>5</DongCachDong>
+    <DoanCachDoan>20</DoanCachDoan>
+    <WidthBill>280</WidthBill>
+    <WidthTenVoucher>120</WidthTenVoucher>
+    <WidthGiaTri>80</WidthGiaTri>
+    <WidthThanhTien>80</WidthThanhTien>
+  </InBanHang>
+  <InThanhToan>
+    <startX>0</startX>
+    <startY>0</startY>
+    <startXGiaTri>200</startXGiaTri>
+    <DongCachDong>5</DongCachDong>
+    <DoanCachDoan>20</DoanCachDoan>
+    <WidthBill>280</WidthBill>
+    <WidthGiaTri>80</WidthGiaTri>
+  </InThanhToan>
+</QLVC>

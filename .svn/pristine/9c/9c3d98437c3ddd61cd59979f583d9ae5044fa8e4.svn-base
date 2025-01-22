@@ -1,0 +1,106 @@
+﻿using Base.Common;
+using Base.Common.Items;
+using Common;
+using Common.Globals;
+using Service;
+using System;
+using System.Collections.Generic;
+using System.Deployment.Application;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace QuanLyVoucher
+{
+    public class Remember : ConfigBase
+    {
+        public HandleState SetRemember(string _userID, string _passWord, string _chiNhanh, string _nganh
+            , string _serverSQL, string _userSQL, string _passwordSQL, string _databaseSQL)
+        {
+            try
+            {
+                SetInformation(_userID, _passWord, _chiNhanh, _nganh);
+                Set("QLVC.ConnectionSQL.Server", "", _serverSQL);
+                Set("QLVC.ConnectionSQL.User", "", _userSQL);
+                Set("QLVC.ConnectionSQL.Password", "", CryptographyUtility.Encrypt(_passwordSQL));
+                Set("QLVC.ConnectionSQL.Database", "", _databaseSQL);
+
+                if (!string.IsNullOrEmpty(_userID))
+                    Set("QLVC.Login.date", "", CryptographyUtility.Encrypt(DataUtils.GetDate().ToString("yyyyMMdd")));
+                else
+                    Set("QLVC.Login.date", "", "");
+
+                HandleState handleState = SaveConfig();
+
+                //Copy XML file from QLCV app to profile in clickonce application
+                if (ApplicationDeployment.IsNetworkDeployed)
+                {
+                    string sourceFile = QLVCConst.ConfigurePath;
+                    string destFile = QLVCConst.ConfigurePathInProfile;
+                    int iCountNodeSource = GetCountNode("QLVC"), iCountNodeDest = 0;
+
+                    XMLPath = QLVCConst.ConfigurePathInProfile;
+                    if (OpenConfig().Success)
+                        iCountNodeDest = GetCountNode("QLVC");
+
+                    //Copy neu chua co file XML
+                    if ((File.Exists(sourceFile) && !File.Exists(destFile))
+                        || iCountNodeSource != iCountNodeDest)
+                        File.Copy(sourceFile, destFile, true);
+                    else
+                    {
+                        //Update lai thong tin user dang nhap
+                        if (iCountNodeDest > 0)
+                        {
+                            SetInformation(_userID, _passWord, _chiNhanh, _nganh);
+
+                            return SaveConfig();
+                        }
+                    }
+                }
+
+                return handleState;
+            }
+            catch (Exception ex) { return new HandleState(ex); }
+        }
+
+        public HandleState GetRemember(ref string _userID, ref string _passWord, ref string _chiNhanh, ref string _nganh
+            , ref string _serverSQL, ref string _userSQL, ref string _passwordSQL, ref string _databaseSQL)
+        {
+            try
+            {
+                _serverSQL = Get("QLVC.ConnectionSQL.Server", "");
+                _userSQL = Get("QLVC.ConnectionSQL.User", "");
+                _passwordSQL = GetDecrypt("QLVC.ConnectionSQL.Password", "");
+                _databaseSQL = Get("QLVC.ConnectionSQL.Database", "");
+
+                GetInformation(ref _userID, ref _passWord, ref _chiNhanh, ref _nganh);
+
+                if (string.IsNullOrWhiteSpace(_userID) && ApplicationDeployment.IsNetworkDeployed)
+                {
+                    XMLPath = QLVCConst.ConfigurePathInProfile;
+                    GetInformation(ref _userID, ref _passWord, ref _chiNhanh, ref _nganh);
+                }
+
+                return new HandleState();
+            }
+            catch (Exception ex) { return new HandleState(ex); }
+        }
+
+        private void GetInformation(ref string _userID, ref string _passWord, ref string _chiNhanh, ref string _nganh)
+        {
+            _userID = Get("QLVC.Login.user", "");
+            _passWord = GetDecrypt("QLVC.Login.password", "");
+            _chiNhanh = Get("QLVC.Login.chinhanh", "");
+            _nganh = Get("QLVC.Login.nganh", "");
+        }
+
+        private void SetInformation(string _userID, string _passWord, string _chiNhanh, string _nganh)
+        {
+            Set("QLVC.Login.user", "", _userID);
+            Set("QLVC.Login.password", "", CryptographyUtility.Encrypt(_passWord));
+            Set("QLVC.Login.chinhanh", "", _chiNhanh);
+            Set("QLVC.Login.nganh", "", _nganh);
+        }
+    }
+}

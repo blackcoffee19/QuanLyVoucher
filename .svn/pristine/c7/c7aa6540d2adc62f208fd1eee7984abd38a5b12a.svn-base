@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+    </configSections>
+    <connectionStrings>
+        <add name="Service.Properties.Settings.QuanLyVoucherConnectionString"
+            connectionString="Data Source=192.168.7.10;Initial Catalog=QuanLyVoucher;User ID=sa;Password=sa@123"
+            providerName="System.Data.SqlClient" />
+        <add name="Service.Properties.Settings.QuanLyVoucherConnectionString1"
+            connectionString="Data Source=192.168.250.10;Initial Catalog=QuanLyVoucher;Persist Security Info=True;User ID=sa;Password=sa@123"
+            providerName="System.Data.SqlClient" />
+        <add name="Service.Properties.Settings.QuanLyVoucherConnectionString2"
+            connectionString="Data Source=192.168.201.66;Initial Catalog=QuanLyVoucher;Persist Security Info=True;User ID=sa;Password=sa@123"
+            providerName="System.Data.SqlClient" />
+        <add name="Service.Properties.Settings.QuanLyVoucherConnectionString3"
+            connectionString="Data Source=vpmay6;Initial Catalog=QuanLyVoucher;Persist Security Info=True;User ID=sa;Password=sa@123"
+            providerName="System.Data.SqlClient" />
+        <add name="Service.Properties.Settings.QuanLyVoucherConnectionString4"
+            connectionString="Data Source=172.16.10.10;Initial Catalog=QuanLyVoucher;Persist Security Info=True;User ID=sa;Password=sa@123"
+            providerName="System.Data.SqlClient" />
+        <add name="Service.Properties.Settings.QuanLyVoucherConnectionString5"
+            connectionString="Data Source=172.16.10.10;Initial Catalog=QuanLyVoucher;Persist Security Info=True;User ID=admin;Password=sa@123$"
+            providerName="System.Data.SqlClient" />
+        <add name="Service.Properties.Settings.QuanLyVoucherConnectionString6"
+            connectionString="Data Source=SRIT002\SQLEXPRESS;Initial Catalog=QuanLyVoucher;Persist Security Info=True;User ID=sa;Password=P@ssw0rd"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
+</configuration>

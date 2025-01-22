@@ -1,0 +1,106 @@
+﻿using Base.AppliBase;
+using Base.AppliBaseForm;
+using Base.Common;
+using Base.Common.Items;
+using Base.DevExpressEx.Utility;
+using Business;
+using Business.Globals;
+using Common.Globals;
+using DevExpress.XtraEditors.Controls;
+using QuanLyVoucher.Globals;
+using Service;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using Tool;
+
+namespace QuanLyVoucher.Category
+{
+    public partial class frmKhachHang : BaseFormOnGrid<tbl_KhachHang, tbl_KhachHangBusiness, QLVCDataContext>
+    {
+        public frmKhachHang()
+        {
+            InitializeComponent();
+
+            //..
+            ConfigSearchBox();
+
+            //..
+            FunctionLoadData = "GetData";
+            FuLoadDataParas = () => new[]
+            {
+                (object)uSearch.GetValue("dptTuNgay"),
+                (object)uSearch.GetValue("dptDenNgay"),
+                (object)uSearch.GetValue("txtHoTen"),
+                (object)uSearch.GetValue("txtSoDienThoai"),
+                (object)uSearch.GetValue("txtCMND"),
+                (object)uSearch.GetValue("txtDiaChi")
+            };
+
+            //..define fields what showed on grid
+            GvMain.ExAddColumns(new DataFieldColumn("cTen", "Họ và tên", "Ten", false, 150),
+                                new DataFieldColumn("cCMND", "CMND", "CMND", false, 50),
+                                new DataFieldColumn("cDienThoai", "Điện thoại", "DienThoai", false, 50),
+                                new DataFieldColumn("cGioiTinhEx", "Giới tính", "GioiTinhEx", false, 50),
+                                new DataFieldColumn("cDiaChi", "Địa chỉ", "DiaChi", false, 150),
+                                new DataFieldColumn("cEmail", "Email", "Email", false, 100),
+                                new DataFieldColumn("cGhichu", "Ghi chú", "Ghichu", false, 150),
+                                new DataFieldColumn("cTrangThai", "Trạng thái", "TrangThai", false, 30));
+
+            //..specify field what use combobox
+            List<BasicItem> lGioiTinh = new List<BasicItem>(new[]
+            {
+                new BasicItem("Nam", Enum.GetName(typeof(GioiTinh), GioiTinh.Nam)),
+                new BasicItem("Nữ", Enum.GetName(typeof(GioiTinh), GioiTinh.Nu))
+            });
+            GvMain.ExSetSearchColumnCombobox("GioiTinhEx", "Text", "Value", lGioiTinh.ToList(), 350, 350
+                , new LookUpColumnInfo("Text", 100, "Giới tính"));
+
+            //view record of form User
+            GvMain.ViewRowNumber = true;
+
+            //..just call this function, base will auto detect for field what can be editable in add mode or edit mode
+            AutoSetColumnEditor();
+
+            //..set auto values
+            GridUtil.DataFieldAutoValues.Add(new DataFieldAutoValue("NguoiTao", clsPublicVar.User.Ma, dr => GridUtil.DataMode == DataModeType.AddNew));
+            GridUtil.DataFieldAutoValues.Add(new DataFieldAutoValue("NgayTao", dr => DataUtils.GetDate(), dr => GridUtil.DataMode == DataModeType.AddNew));
+            GridUtil.DataFieldAutoValues.Add(new DataFieldAutoValue("NguoiSua", clsPublicVar.User.Ma, dr => GridUtil.DataMode == DataModeType.Edit));
+            GridUtil.DataFieldAutoValues.Add(new DataFieldAutoValue("NgaySua", dr => DataUtils.GetDate(), dr => GridUtil.DataMode == DataModeType.Edit));
+            GridUtil.DataFieldAutoValues.Add(new DataFieldAutoValue("TrangThai", true, dr => GridUtil.DataMode == DataModeType.AddNew));
+
+            //..set validate
+            //GridUtil.GridValid.DataColumnErrors.Add(new DataColumnBlankError("CMND", "Bạn chưa nhập số CMND", ""));
+            //GridUtil.GridValid.DataColumnErrors.Add(new DataColumnKeysExistError("CMND", "Số CMND đã tồn tại", "", AutoGenExistedOnAddNew("CMND", clsPublicVar.FieldCheckDelete)));
+            GridUtil.GridValid.DataColumnErrors.Add(new DataColumnBlankError("DienThoai", "Bạn chưa nhập số điện thoại", ""));
+            GridUtil.GridValid.DataColumnErrors.Add(new DataColumnKeysExistError("DienThoai", "Số điện thoại đã tồn tại", "", AutoGenExistedOnAddNew("DienThoai", clsPublicVar.FieldCheckDelete)));
+            GridUtil.GridValid.DataColumnErrors.Add(new DataColumnBlankError("Ten", "Bạn chưa nhập họ và tên", ""));
+            GridUtil.GridValid.DataColumnErrors.Add(new DataColumnBlankError("GioiTinhEx", "Bạn chưa chọn giới tính", ""));
+            GridUtil.GridValid.DataColumnErrors.Add(new DataColumnDynamicRulesError("Email", "Email không đúng định dạng", "", dr => Utility.IsEmail(((tbl_KhachHang)dr).Email, true)));
+
+            //..define delete
+            AutoGenFunctionDelete();
+
+            //.x. set children
+            SetChildren<tbl_BanHang>("Ma", "MaKH", false, clsPublicVar.FieldCheckDelete);
+        }
+
+        protected override void BaseForm_Load(object sender, EventArgs e)
+        {
+            base.BaseForm_Load(sender, e);
+
+            //..
+            SupportTool.SetDisplayRowStatus(this, _parent, GvMain, QLVCConst.RequestRecordStatus, clsPublicVar.SumRecord);
+        }
+
+        public override void Delete()
+        {
+            UpdateDelete(clsPublicVar.FieldUpdateDelete());
+        }
+    }
+}

@@ -1,0 +1,11 @@
+D:\KHA\Phan Mem\QuanlyVoucher\bin\Service.dll.config
+D:\KHA\Phan Mem\QuanlyVoucher\bin\Service.dll
+D:\KHA\Phan Mem\QuanlyVoucher\bin\Service.pdb
+D:\KHA\Phan Mem\QuanlyVoucher\Service\obj\Debug\Service.dll
+D:\KHA\Phan Mem\QuanlyVoucher\Service\obj\Debug\Service.pdb
+D:\QuanlyVoucher\QuanlyVoucher\bin\Service.dll.config
+D:\QuanlyVoucher\QuanlyVoucher\bin\Service.dll
+D:\QuanlyVoucher\QuanlyVoucher\bin\Service.pdb
+D:\QuanlyVoucher\QuanlyVoucher\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+D:\QuanlyVoucher\QuanlyVoucher\Service\obj\Debug\Service.dll
+D:\QuanlyVoucher\QuanlyVoucher\Service\obj\Debug\Service.pdb

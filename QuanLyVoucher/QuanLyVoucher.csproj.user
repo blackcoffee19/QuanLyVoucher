@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>\\172.16.10.7\Website\app.hungduy.vn\QuanLyVoucher\|\\172.16.10.7\Build_Application\QuanLyVoucher\</PublishUrlHistory>
+    <InstallUrlHistory>http://app.hungduy.vn/quanlyvoucher/|https://app.hungduy.vn/quanlyvoucher/</InstallUrlHistory>
+    <SupportUrlHistory>http://app.hungduy.vn/quanlyvoucher/support/|https://app.hungduy.vn/quanlyvoucher/support/</SupportUrlHistory>
+    <UpdateUrlHistory>https://app.hungduy.vn/quanlyvoucher/|http://app.hungduy.vn/quanlyvoucher/</UpdateUrlHistory>
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>

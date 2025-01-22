@@ -1,0 +1,5 @@
+D:\KHA\Phan Mem\QuanlyVoucher\bin\Tool.dll
+D:\KHA\Phan Mem\QuanlyVoucher\bin\Tool.pdb
+D:\KHA\Phan Mem\QuanlyVoucher\Tool\obj\Debug\Tool.dll
+D:\KHA\Phan Mem\QuanlyVoucher\Tool\obj\Debug\Tool.pdb
+D:\KHA\Phan Mem\QuanlyVoucher\Tool\obj\Debug\Tool.csprojResolveAssemblyReference.cache

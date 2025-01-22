@@ -1,0 +1,5 @@
+D:\KHA\Phan Mem\QuanlyVoucher\bin\Business.dll
+D:\KHA\Phan Mem\QuanlyVoucher\bin\Business.pdb
+D:\KHA\Phan Mem\QuanlyVoucher\Business\obj\Debug\Business.dll
+D:\KHA\Phan Mem\QuanlyVoucher\Business\obj\Debug\Business.pdb
+D:\KHA\Phan Mem\QuanlyVoucher\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache

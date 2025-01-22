@@ -1,0 +1,86 @@
+D:\KHA\Phan Mem\QuanlyVoucher\bin\DataFiles\Templates\DoanhThuTheoNgayDangKy.xlsx
+D:\KHA\Phan Mem\QuanlyVoucher\bin\DataFiles\Templates\DoanhThuTheoNgayThanhToan.xlsx
+D:\KHA\Phan Mem\QuanlyVoucher\bin\DataFiles\Templates\LichSuThanhToan.xlsx
+D:\KHA\Phan Mem\QuanlyVoucher\bin\DataFiles\Templates\VoucherCuaKhachHang.xlsx
+D:\KHA\Phan Mem\QuanlyVoucher\bin\DataFiles\Templates\VoucherDangSuDung.xlsx
+D:\KHA\Phan Mem\QuanlyVoucher\bin\DataFiles\Templates\VoucherHetHanSuDung.xlsx
+D:\KHA\Phan Mem\QuanlyVoucher\bin\DataFiles\Templates\VoucherHetSoDu.xlsx
+D:\KHA\Phan Mem\QuanlyVoucher\bin\QuanLyVoucher.exe.config
+D:\KHA\Phan Mem\QuanlyVoucher\bin\QuanLyVoucher.exe
+D:\KHA\Phan Mem\QuanlyVoucher\bin\QuanLyVoucher.pdb
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmChangePassword.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmConfigurePrinter.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmMenu.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmPhanQuyen.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmQuyen.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmRole.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmRoleQuyen.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmUser.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Category.frmChiNhanh.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Category.frmKhachHang.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Category.frmVoucher.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Category.usrKhachHangToolTimKiem.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.frmLogin.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.frmMain.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Globals.MainButton.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Globals.SQLReport.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Properties.Resources.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Report.frmBaoCao.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.usrThanhToanToolTimKiem.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.frmBanHang.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.frmTaoThanhToan.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.frmThanhToan.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.usrBanHangToolTimKiem.resources
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.csproj.GenerateResource.Cache
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.exe.licenses
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.exe
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.pdb
+D:\KHA\Phan Mem\QuanlyVoucher\bin\QuanLyVoucher.exe.manifest
+D:\KHA\Phan Mem\QuanlyVoucher\bin\QuanLyVoucher.application
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.TrustInfo.xml
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.exe.manifest
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.application
+D:\KHA\Phan Mem\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.csprojResolveAssemblyReference.cache
+D:\QuanlyVoucher\QuanlyVoucher\bin\DataFiles\Templates\DoanhThuTheoNgayDangKy.xlsx
+D:\QuanlyVoucher\QuanlyVoucher\bin\DataFiles\Templates\DoanhThuTheoNgayThanhToan.xlsx
+D:\QuanlyVoucher\QuanlyVoucher\bin\DataFiles\Templates\LichSuThanhToan.xlsx
+D:\QuanlyVoucher\QuanlyVoucher\bin\DataFiles\Templates\VoucherCuaKhachHang.xlsx
+D:\QuanlyVoucher\QuanlyVoucher\bin\DataFiles\Templates\VoucherDangSuDung.xlsx
+D:\QuanlyVoucher\QuanlyVoucher\bin\DataFiles\Templates\VoucherHetHanSuDung.xlsx
+D:\QuanlyVoucher\QuanlyVoucher\bin\DataFiles\Templates\VoucherHetSoDu.xlsx
+D:\QuanlyVoucher\QuanlyVoucher\bin\QuanLyVoucher.exe.config
+D:\QuanlyVoucher\QuanlyVoucher\bin\QuanLyVoucher.exe.manifest
+D:\QuanlyVoucher\QuanlyVoucher\bin\QuanLyVoucher.application
+D:\QuanlyVoucher\QuanlyVoucher\bin\QuanLyVoucher.exe
+D:\QuanlyVoucher\QuanlyVoucher\bin\QuanLyVoucher.pdb
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.csprojResolveAssemblyReference.cache
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmChangePassword.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmConfigurePrinter.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmMenu.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmPhanQuyen.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmQuyen.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmRole.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmRoleQuyen.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Admin.frmUser.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Category.frmChiNhanh.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Category.frmKhachHang.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Category.frmVoucher.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Category.usrKhachHangToolTimKiem.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.frmLogin.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.frmMain.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Globals.MainButton.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Globals.SQLReport.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Properties.Resources.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Report.frmBaoCao.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.usrThanhToanToolTimKiem.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.frmBanHang.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.frmTaoThanhToan.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.frmThanhToan.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.Transaction.usrBanHangToolTimKiem.resources
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.csproj.GenerateResource.Cache
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.exe.licenses
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.TrustInfo.xml
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.exe.manifest
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.application
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.exe
+D:\QuanlyVoucher\QuanlyVoucher\QuanLyVoucher\obj\Debug\QuanLyVoucher.pdb

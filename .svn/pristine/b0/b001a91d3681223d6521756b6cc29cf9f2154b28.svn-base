@@ -1,0 +1,194 @@
+﻿using Base.AppliBase;
+using Base.AppliBaseForm;
+using Base.AppliBaseForm.Globals;
+using Base.Common;
+using Base.DevExpressEx.Utility;
+using Business;
+using Common.Globals;
+using DevExpress.Utils;
+using DevExpress.XtraEditors.Controls;
+using QuanLyVoucher.Globals;
+using Service;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using Tool;
+
+namespace QuanLyVoucher.Transaction
+{
+    public partial class frmTaoThanhToan : BaseFormOnGrid<vTaoThanhToan, vTaoThanhToanBusiness, QLVCDataContext>
+    {
+        private int m_MenuID = 0;
+        private ValidateUtis Valid = new ValidateUtis();
+        private string m_sCode = "";
+
+        public frmTaoThanhToan()
+        {
+            InitializeComponent();
+        }
+
+        public frmTaoThanhToan(int MenuID)
+        {
+            InitializeComponent();
+
+            //Set focus
+            txtMaVach.Focus();
+
+            //..
+            ActionsDeny.AddRange(new[] { ButtonAction.Add, ButtonAction.Edit, ButtonAction.Delete });
+
+            //..
+            m_MenuID = MenuID;
+
+            //..define fields what showed on grid
+            GvMain.ExAddColumns(new DataFieldColumn("cMaKH", "Khách hàng", "MaKH", false, 120) { _isReadOnly = true },
+                                new DataFieldColumn("cMaVoucher", "Voucher", "MaVoucher", false, 150) { _isReadOnly = true },
+                                new DataFieldColumn("cSoDu", "Số dư", "SoDu", false, 50) { _isReadOnly = true, _formatType = FormatType.Numeric, _formatString = QLVCConst.NumberFormat });
+
+            //..specify field what use combobox
+            GvMain.ExSetSearchColumnCombobox("MaKH", "Ten", "Ma", new Base<tbl_KhachHang>().Get().ToList(), 450, 300
+                , new LookUpColumnInfo("Ten", 200, "Tên khách hàng")
+                , new LookUpColumnInfo("CMND", 50, "CMND")
+                , new LookUpColumnInfo("DiaChi", 200, "Địa chỉ"));
+
+            GvMain.ExSetSearchColumnCombobox("MaVoucher", "Ten", "Ma", new Base<tbl_Voucher>().Get().ToList(), 350, 300
+                , new LookUpColumnInfo("Ten", 250, "Tên voucher")
+                , new LookUpColumnInfo("GiaTri", 100, "Giá trị voucher"));
+
+            //view record of form User
+            GvMain.ViewRowNumber = true;
+
+            //..
+            panContent.Controls.Add(GMain);
+
+            //..just call this function, base will auto detect for field what can be editable in add mode or edit mode
+            AutoSetColumnEditor();
+
+            //..define delete
+            AutoGenFunctionDelete();
+
+            //..
+            txtMaVach.KeyPress += (sender, e) =>
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    LoadDataGrid();
+
+                    if (GvMain.DataRowCount == 0)
+                    {
+                        SetFailure("Không tìm thấy phiếu bán hàng hoặc phiếu bán hàng đã bị hủy do hết hạn hiệu lực, không còn số dư...");
+                        txtMaVach.Focus();
+                        AcceptButton = null;
+                    }
+                    else
+                    {
+                        txtGiaTriSuDung.Focus();
+                        AcceptButton = btnTaoThanhToan;
+                    }
+                }
+            };
+        }
+
+        protected override void BaseForm_Load(object sender, EventArgs e)
+        {
+            base.BaseForm_Load(sender, e);
+
+            //..
+            SupportTool.SetDisplayRowStatus(this, _parent, GvMain, QLVCConst.RequestRecordStatus, clsPublicVar.SumRecord);
+        }
+
+        private void btnTaoThanhToan_Click(object sender, EventArgs e)
+        {
+            Valid.AddValidKeysExist(txtMaVach, "Bạn vui lòng nhập mã vạch", t => Cast.ToString(txtMaVach.EditValue) == "", "");
+            Valid.AddValidKeysExist(txtGiaTriSuDung, "Bạn vui lòng nhập giá trị sử dụng", t => Cast.ToInt(txtGiaTriSuDung.EditValue) <= 0, "");
+            Valid.AddValidKeysExist(txtGiaTriSuDung, "Giá trị sử dụng vượt quá số dư", t =>
+            {
+                vTaoThanhToan dr = GvMain.ExGetCurrentDataRow() as vTaoThanhToan;
+                if (dr != null && Cast.ToInt(txtGiaTriSuDung.EditValue) > dr.SoDu)
+                {
+                    txtGiaTriSuDung.Focus();
+                    return true;
+                }
+                return false;
+            }, "");
+
+            if (!Valid.ValidateOK())
+                return;
+
+            vTaoThanhToan drTTT = GvMain.ExGetCurrentDataRow() as vTaoThanhToan;
+
+            if (drTTT != null)
+            {
+                if (SetConfirm("Bạn chắc chắn muốn tạo thanh toán?", "Thông báo") == DialogResult.OK)
+                {
+                    //Luu du lieu
+                    int GiaTriSuDung = Cast.ToInt(txtGiaTriSuDung.EditValue);
+                    DateTime currDate = DataUtils.GetDate();
+                    m_sCode = string.Format("{0:ddMMyyyyHHmmss}", currDate);
+
+                    DataBusiness.XuLyTaoThanhToan(m_sCode, clsPublicVar.ChiNhanh.Ma, clsPublicVar.Nganh.Ma, drTTT.MaBanHang
+                        , GiaTriSuDung, (drTTT.SoDu ?? 0) - GiaTriSuDung, txtGhiChu.Text, clsPublicVar.User.Ma, currDate);
+
+                    //In hoa don
+                    new ThongTinHoaDon().XuLyMayIn(TaoHoaDon);
+                }
+                else
+                {
+                    txtMaVach.Focus();
+                    AcceptButton = null;
+                    return;
+                }
+            }
+            else
+            {
+                SetFailure("Bạn vui lòng chọn phiếu bán hàng phù hợp trước khi tạo thanh toán");
+                txtMaVach.Focus();
+                AcceptButton = null;
+                return;
+            }
+
+            //Done
+            this.Close();
+        }
+
+        private void TaoHoaDon(object sender, PrintPageEventArgs e)
+        {
+            Graphics graphic = e.Graphics;
+
+            //..
+            vTaoThanhToan drTTT = GvMain.ExGetCurrentDataRow() as vTaoThanhToan;
+            if (drTTT != null)
+                new ThongTinHoaDon().ChiTietHoaDonThanhToan(graphic, m_sCode, drTTT.TenKH, (drTTT.NgayTao ?? DateTime.Now), drTTT.TenVoucher
+                    , (drTTT.SoDu ?? 0), Cast.ToInt(txtGiaTriSuDung.EditValue), (drTTT.SoDu ?? 0) - Cast.ToInt(txtGiaTriSuDung.EditValue));
+
+            //Gan lai ma code ve rong
+            m_sCode = "";
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void LoadDataGrid()
+        {
+            GMain.DataSource = null;
+            GMain.DataSource = new vTaoThanhToanBusiness().GetData(clsPublicVar.ChiNhanh.Ma, clsPublicVar.Nganh.Ma
+                , Cast.ToString(txtMaVach.EditValue));
+
+            //..
+            txtMaVach.Focus();
+        }
+
+        public override void Browse()
+        {
+            GMain.DataSource = null;
+        }
+    }
+}

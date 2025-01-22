@@ -1,0 +1,67 @@
+﻿using Base.Common;
+using QuanLyVoucher.Globals;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace QuanLyVoucher
+{
+    static class Program
+    {
+        public static bool m_IsLoginAs = false;
+        public static string m_Username = "";
+        public static frmMain fMain;
+
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            bool bTryAgain = true;
+
+            while (bTryAgain)
+            {
+                bTryAgain = false;
+                var dialog = new frmLogin();
+
+                if (m_IsLoginAs)
+                {
+                    dialog = new frmLogin(true, m_Username);
+                    m_IsLoginAs = false;
+                }
+
+                using (dialog)
+                {
+                    if (dialog.ShowDialog() != DialogResult.OK) return;
+
+                    var font = new Font(Base.AppliBaseForm.Globals.Const.DefaultFont, Cast.ToInt(Base.AppliBaseForm.Globals.Const.DefaultFontSize));
+                    DevExpress.Utils.AppearanceObject.DefaultFont = font;
+                    DevExpress.Utils.AppearanceDefault.Empty.Font = font;
+
+                    DevExpress.Skins.SkinManager.Default.RegisterAssembly(typeof(DevExpress.UserSkins.BonusSkins).Assembly);
+
+                    fMain = new frmMain();
+                    fMain.Show();
+
+                    Application.Run(fMain);
+
+                    //..
+                    bTryAgain = fMain.bSignOut;
+                }
+            }
+
+            try
+            {
+                clsPublicVar.Conn.Close();
+            }
+            catch { }
+        }
+    }
+}

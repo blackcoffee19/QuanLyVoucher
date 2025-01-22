@@ -1,0 +1,32 @@
+﻿using Base.Common.Items;
+using Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Business
+{
+    public class vTaoThanhToanBusiness : Base<vTaoThanhToan>
+    {
+        public IQueryable<vTaoThanhToan> GetData(int MaChiNhanh, int MaNganh, string MaVach)
+        {
+            if((MaVach ?? "") == "")
+                return null;
+            return Get(t => t.MaChiNhanh == MaChiNhanh && t.MaNganh == MaNganh && t.MaVach == MaVach)
+                .OrderByDescending(t => t.NgayTao);
+        }
+
+        public HandleState XuLyTaoThanhToan(string Code, int MaChiNhanh, int MaNganh, int MaBanHang, int GiaTriThanhToan, int SoDu
+            , string GhiChu, int NguoiXuLy, DateTime NgayTao)
+        {
+            int? kq = -2;
+            ((QLVCDataContext)DC).sp_ThanhToan_Them(Code, MaChiNhanh, MaNganh, MaBanHang, GiaTriThanhToan, SoDu, GhiChu, NguoiXuLy
+                , NgayTao, ref kq);
+            
+            if (kq >= 0)
+                return new HandleState();
+            return new HandleState("Update failed");
+        }
+    }
+}
