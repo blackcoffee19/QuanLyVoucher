@@ -131,7 +131,6 @@ namespace QuanLyVoucher.Admin
             GridUtil.GridValid.DataColumnErrors.Add(new DataColumnBlankError("HoTen", "Bạn chưa nhập họ tên", ""));
             GridUtil.GridValid.DataColumnErrors.Add(new DataColumnDynamicRulesError("Email", "Email không đúng định dạng", "", dr => dr != null && Utility.IsEmail(((sys_User)dr).Email, true)));
             GridUtil.GridValid.DataColumnErrors.Add(new DataColumnBlankError("MSNV", "Vui lòng nhập mã số nhân viên", ""));
-            //GridUtil.GridValid.DataColumnErrors.Add(new DataColumnDynamicRulesError("MSNV", "Vui lòng nhập mã số nhân viên", "", dr => dr != null && (((sys_User)dr).MSNV != null && ((sys_User)dr).MSNV.Trim().Length > 0 && ((sys_User)dr).MSNV.Trim().Length <= 30)));
             GridUtil.GridValid.DataColumnErrors.Add(new DataColumnKeysExistError("MSNV", "Mã số nhân viên đã tồn tại", "", AutoGenExistedOnAddNew("MSNV", clsPublicVar.FieldCheckDelete)));
 
 
